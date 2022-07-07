@@ -1,0 +1,1264 @@
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    #section1 {
+        height: 600px;
+        background-color: pink;
+    }
+    
+    #section2 {
+        height: 600px;
+        background-color: yellow;
+    }
+</style>
+
+
+<!-- scroll -->
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .bombay {
+            /* margin-: 330px; */
+            /* padding: 40px; */
+            /* padding-top: -90px; */
+            position: absolute;
+            left: 650px;
+            top: 10px;
+        }
+        
+        .mylogo {
+            position: absolute;
+            /* left:550px; */
+            top: 10px;
+        }
+        
+        .html {
+            font-size: 62.5%;
+        }
+        
+        .navbar input[type="checkbox"],
+        .navbar .hamburger-lines {
+            display: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 90%;
+            margin: auto;
+        }
+        
+        .navbar {
+            /* box-shadow: 0px 5px 10px 0px #aaa; */
+            position: fixed;
+            width: 100%;
+            /* background: #fff; */
+            color: #a67564;
+            opacity: 0.85;
+            z-index: 100;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            height: 64px;
+            align-items: center;
+        }
+        
+        .menu-items {
+            order: 2;
+            display: flex;
+            margin-left: 180px;
+            /* margin-right: 180px; */
+            padding-top: 40px;
+        }
+        
+        .logo {
+            order: 1;
+            font-size: 2.3rem;
+        }
+        
+        .menu-items li {
+            list-style: none;
+            margin-left: 1.5rem;
+            font-size: 1.3rem;
+            color: #a67564;
+        }
+        
+        .navbar a {
+            color: #a67564;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .navbar a:hover {
+            color: #a67564;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                opacity: 0.95;
+            }
+            .navbar-container input[type="checkbox"],
+            .navbar-container .hamburger-lines {
+                display: block;
+            }
+            .navbar-container {
+                display: block;
+                position: relative;
+                height: 64px;
+            }
+            .navbar-container input[type="checkbox"] {
+                position: absolute;
+                display: block;
+                height: 32px;
+                width: 30px;
+                top: 20px;
+                left: 20px;
+                z-index: 5;
+                opacity: 0;
+                cursor: pointer;
+            }
+            .navbar-container .hamburger-lines {
+                display: block;
+                height: 28px;
+                width: 35px;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .navbar-container .hamburger-lines .line {
+                display: block;
+                height: 4px;
+                width: 100%;
+                border-radius: 10px;
+                background: #333;
+            }
+            .navbar-container .hamburger-lines .line1 {
+                transform-origin: 0% 0%;
+                transition: transform 0.3s ease-in-out;
+            }
+            .navbar-container .hamburger-lines .line2 {
+                transition: transform 0.2s ease-in-out;
+            }
+            .navbar-container .hamburger-lines .line3 {
+                transform-origin: 0% 100%;
+                transition: transform 0.3s ease-in-out;
+            }
+            .navbar .menu-items {
+                padding-top: 100px;
+                /* background: #fff; */
+                height: 100vh;
+                max-width: 300px;
+                transform: translate(-150%);
+                display: flex;
+                flex-direction: column;
+                margin-left: -40px;
+                padding-left: 40px;
+                transition: transform 0.5s ease-in-out;
+                /* box-shadow: 5px 0px 10px 0px #aaa; */
+                overflow: scroll;
+            }
+            .navbar .menu-items li {
+                margin-bottom: 1.8rem;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+            .logo {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 2.5rem;
+            }
+            .navbar-container input[type="checkbox"]:checked~.menu-items {
+                transform: translateX(0);
+            }
+            .navbar-container input[type="checkbox"]:checked~.hamburger-lines .line1 {
+                transform: rotate(45deg);
+            }
+            .navbar-container input[type="checkbox"]:checked~.hamburger-lines .line2 {
+                transform: scaleY(0);
+            }
+            .navbar-container input[type="checkbox"]:checked~.hamburger-lines .line3 {
+                transform: rotate(-45deg);
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .navbar-container input[type="checkbox"]:checked~.logo,
+            .mylogo,
+            .bombay {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: #d9d2cc;">
+    <nav class="navbar">
+        <div class="navbar-container container">
+            <input type="checkbox" name="" id="">
+            <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div>
+            <ul class="menu-items">
+                <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;" onclick="history.back()"><span style="cursor:pointer"><i class="fa-solid fa-arrow-left"></i></span></li>
+                <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;"><a href="#Highlights">Highlights</a> </li>
+                <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;"><a href="#Amenities">Amenities</a></li>
+                <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;"><a href="#">Offers</a></li>
+                <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;"><a href="#Gallery">Gallery</a> </li>
+                <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;"><a href="#Location">Location</a> </li>
+                <!-- <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;"><a href="#">Gallery</a> &nbsp; <span style="font-weight: bold;color: #d9b18e;">|</span> </li>
+                <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;"><a href="#">Location</a>&nbsp; <span style="font-weight: bold;color: #d9b18e;">|</span> </li> -->
+                <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;"><a href="#">You Liked It! Contact Us</a> <span style="font-weight: bold;color: #d9b18e;"></span></li>
+                <div class="bombay"><img class="bombay" src="bombay.png" width="60px" height="60px" alt=""></div>
+            </ul>
+            <!-- <h1 class="logo">Navbar</h1> -->
+            <img class="mylogo" src="sapphire.png" width="60px" height="60px" alt="">
+        </div>
+    </nav>
+</body>
+
+</html>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+    * {
+        box-sizing: border-box;
+    }
+    
+    p {
+        font-size: 20px;
+        font-family: sans-serif;
+        color: #6439a9;
+    }
+    
+    .container1 {
+        padding: 100px 30px;
+        width: 100%;
+        /* margin: 0 auto; */
+        max-width: 900px;
+    }
+    /* // clearfix */
+    
+    .image-stack::after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+    
+    .image-stack__item--top {
+        float: left;
+        /* width: 66%; */
+        margin-right: -100%;
+        padding-top: 15%;
+        position: relative;
+        z-index: -1;
+        max-width: 100%;
+        min-width: 50px;
+        height: auto;
+    }
+    
+    .image-stack__item--bottom {
+        max-width: 100%;
+        min-width: 50px;
+        float: right;
+        width: 75%;
+        /* z-index: 10; */
+        border: 1px;
+        /* padding: 10px; */
+        /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+    }
+    
+    .ig {
+        width: 100%;
+    }
+    
+    .downimg {
+        margin-left: 550px;
+        margin-right: 20px;
+        margin-top: -300px;
+    }
+    
+    @media (max-width: 768px) {
+        .image-stack__item image-stack__item--top {
+            display: flex;
+            background-color: pink;
+        }
+        .image-stack__item--bottom {
+            max-width: 100%;
+            min-width: 50px;
+        }
+        .downimg {
+            overflow: hidden;
+        }
+    }
+    
+    .para {
+        align-items: flex-end;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        /* For mobile phones: */
+        .ig1 {
+            width: 100%;
+            height: auto;
+            margin-bottom: 900px;
+        }
+        .ig {
+            width: 100%;
+            margin-top: 330px;
+            min-width: 50px;
+        }
+        h2 .myd1 {
+            margin: auto
+        }
+        /* .downimg{
+            
+        } */
+    }
+    /* @media only screen and (max-width: 375px) {
+        .myd1 {
+            color: lightblue;
+        }
+    } */
+</style>
+
+
+<div class="container1">
+    <!-- <p>Float method</p> -->
+    <div class="image-stack" style="margin-top: 15px; margin-left: 0px;">
+
+        <div class="image-stack__item image-stack__item--top">
+
+            <img class="ig .img-fluid. max-width: 100%; and height: auto" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;"
+                src="./Overviewsection/01.png" width="400px" height="300px" alt="">
+        </div>
+        <div class="image-stack__item image-stack__item--bottom .img-fluid. max-width: 100%; and height: auto">
+            <img style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;" class="ig1" src="./Overviewsection//02.png" width="300px"
+                height="370px" alt="">
+        </div>
+    </div>
+    <!-- <p>Text can go under here yabba dabba doo.</p> -->
+
+    </p>
+</div>
+
+<div class="myd" style="float: right; margin-left: 50px; margin-top: -480px;">
+    <p style="word-wrap: break-word;">
+        <h2 class="myd1" style="font-size:60px;margin-left: 700px;color: #d9b18e;font-family: Josefin Sans; font-size: 48px; font-weight: 100;"> Overview</h2>
+
+        <!-- <p style="font-size:5vw;margin-left: 600px">Resize the browser window to see how the text size scales.</p> -->
+
+        <p class="myd2" style="font-size:20px;margin-left: 550px; margin-right: 20px;color: #a67564;font-family: Josefin Sans; font-size: 18px; font-weight: 100;padding-top: 40px;line-height: 1.6">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked
+            up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+
+        <!-- <p>Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.</p> -->
+    </p>
+</div>
+
+<div class="downimg">
+    <img class=".img-fluid. max-width: 100%; and height: auto" src="Overviewsection\art.png" alt="">
+</div>
+
+<h1 style="padding-top:200px">
+    <hr>
+</h1>
+
+<!-- highlights -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;list-style:none;color: #a67564;" onclick="history.back()"><span style="cursor:pointer"><i class="fa-solid fa-arrow-left"></i></span></li> -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        .ig1 {
+            /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+        }
+        
+        .ig2 {
+            position: absolute;
+            top: 1070px;
+            left: 570px;
+        }
+        
+        .ig3 {
+            position: absolute;
+            top: 1570px;
+            left: 570px;
+        }
+        /* @media all and (max-width: 1024px) and (min-width: 768px) {
+            .ig1 {
+                width: fit-content;
+            }
+        } */
+        
+        @media only screen and (max-width: 600px) {
+            .ig1 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig2 img {
+                width: min-content;
+                height: 100%;
+                margin-top: 450px;
+                margin-left: -564px;
+                padding: 0;
+            }
+            h1,
+            p {
+                display: none;
+            }
+            .ig3 img {
+                width: min-content;
+                height: 100%;
+                margin-top: 450px;
+                margin-left: -564px;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: #d9d2cc;overflow: visible;">
+    <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;list-style:none;color: #a67564;" onclick="history.back()"><span style="cursor:pointer"><i class="fa-solid fa-arrow-left"></i></span></li>
+    <a href="#" style="text-decoration: none;">
+        <h1 style=" text-align: center; color: #d9b18e;font-family: Josefin Sans; font-size: 38px; font-weight: 200;" id="Highlights">Highlights</h1>
+    </a>
+
+    <div class="main" style="padding-top: 100px;">
+        <div class="ig1">
+            <h3 style="color: #d9b18e;font-family: Josefin Sans; font-size: 28px;   font-weight: 100;">Connectivity</h3>
+            <p style="color: #a67564;font-family: Josefin Sans; font-size: 18px; font-weight: 100;">The world of SOHO within reach</p>
+            <img src="./Highlight section/01.png" style="width:50% sm-50px" alt="">
+        </div>
+        <div class="ig2">
+            <img src="./Highlight section/02.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" alt="">
+            <h1 style="margin-left: 460px; margin-top: -180px;color: #d9b18e;font-family: Josefin Sans; font-size: 28px; font-weight: 100;">The SOHO Life</h1>
+            <p style="margin-left: 460px;color: #a67564;font-family: Josefin Sans; font-size: 18px; font-weight: 100;">Clean, Green, Lean.</p>
+        </div>
+        <div class="ig3">
+
+            <img src="./Highlight section/03.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" alt="">
+            <h1 style="margin-left: 460px; margin-top: -180px;color: #d9b18e;font-family: Josefin Sans; font-size: 28px; font-weight: 100;">Towers</h1>
+            <p style="margin-left: 460px;color: #a67564;font-family: Josefin Sans; font-size: 18px; font-weight: 100;line-height: 1.5;">Experience life beyond the Exclusive.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<!-- highlights -->
+
+
+
+<h1 style="padding-top:200px">
+    <hr>
+</h1>
+<!-- aminity -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlights</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        .ig52 {
+            position: absolute;
+            top: 2070px;
+            left: 910px;
+            display: flex;
+        }
+        
+        .ig53 {
+            position: absolute;
+            top: 2130px;
+            left: 970px;
+        }
+        
+        .ig4 {
+            position: absolute;
+            top: 2325px;
+            left: 600px;
+        }
+        
+        .ig5 {
+            position: absolute;
+            /* top: 2515px; */
+            top: 2385px;
+            left: 650px;
+        }
+        
+        .ig6 {
+            position: absolute;
+            top: -150px;
+            left: 170px;
+            z-index: -1;
+        }
+        
+        @media only screen and (width: 1600px) {
+            .mylist {
+                padding-left: 10px;
+            }
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .ig1 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig52 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig53 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig4 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig5 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig6 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .mylist p li {
+                font-size: 900px;
+                padding-bottom: 1500px;
+            }
+        }
+        /* other section  */
+        
+        .ig7 {
+            position: absolute;
+            top: 190px;
+            left: -580px;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+            /* box-shadow: rgb(38, 57, 77) 10px 10px 10px 0px; */
+            /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+        }
+        
+        .ig8 {
+            position: absolute;
+            top: 220px;
+            left: -330px;
+            z-index: 10px;
+        }
+        
+        .ig9 {
+            position: absolute;
+            top: -1px;
+            left: 280px;
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+            /* box-shadow: rgb(38, 57, 77) 10px 10px 10px 0px; */
+            /* box-shadow: rgba(0, 0, 0,/ 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;/ */
+        }
+        
+        .ig10 {
+            position: absolute;
+            top: 120px;
+            left: 140px;
+            /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; */
+            /* box-shadow: rgb(38, 57, 77) 0px 10px 10px 0px; */
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+        }
+        
+        .ig11 {
+            position: absolute;
+            top: 190px;
+            /* left: 280px; */
+            z-index: 10;
+            /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+            /* box-shadow: rgb(38, 57, 77) 10px 10px 10px 0px; */
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+        }
+        
+        .ig12 {
+            position: absolute;
+            top: 310px;
+            left: -145px;
+            /* z-index: -1; */
+            /* box-shadow: rgb(38, 57, 77) 10px 10px 10px 0px; */
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+        }
+        
+        .ig13 {
+            position: absolute;
+            top: -1px;
+            left: 280px;
+            z-index: -1;
+            /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+            /* box-shadow: rgb(38, 57, 77) 10px 10px 10px 0px; */
+            -webkit-box-shadow: 0 8px 6px -6px black;
+            -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+        }
+        
+        .mylist1 {
+            margin-top: 200px;
+            margin-left: 300px;
+            line-height: 1.6;
+        }
+        
+        @media only screen and (max-width: 600px) {
+            .ig7 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig8 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig9 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig10 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig11 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig12 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .ig13 img {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        /* other section  */
+        /* section2 */
+        
+        .mydata {
+            margin-left: -245px;
+            list-style: none;
+            margin-top: 300px;
+            line-height: 1.5;
+            color: #d9b18e;
+        }
+        
+        .ig14 {
+            margin-left: 400px;
+            margin-top: -200px;
+            /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
+            /* box-shadow: rgb(38, 57, 77) 10px 0px 10px 0px; */
+        }
+        
+        .ig15 {
+            margin-left: 200px;
+            margin-top: -490px;
+            /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+            /* box-shadow: rgb(38, 57, 77) 10px 10px 10px 10px; */
+            box-shadow: -10px 0px 3px 0px #aaa;
+        }
+        
+        .ig16 {
+            margin-left: 200px;
+            margin-top: 30px;
+            /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+            /* box-shadow: rgb(38, 57, 77) 10px 10px 10px 5px; */
+            box-shadow: -10px 0px 3px 0px #aaa;
+        }
+        
+        .ig17 {
+            margin-left: 200px;
+            margin-top: 30px;
+            /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+            /* box-shadow: rgb(38, 57, 77) 10px 10px 10px 0px; */
+            box-shadow: -10px 0px 3px 0px #aaa;
+        }
+        /* section2 */
+        /* internal */
+        
+        .internal {
+            list-style: none;
+            margin-top: 200px;
+            margin-left: 500px;
+            line-height: 1.6;
+            color: #a67564;
+        }
+        
+        .ig18 {
+            margin-top: -270px;
+        }
+        
+        .ig19 {
+            margin-top: -154px;
+            margin-left: -270px;
+        }
+        
+        .ig20 {
+            margin-top: 74px;
+            margin-left: -270px;
+            z-index: 10;
+        }
+        
+        .ig21 {
+            margin-top: -150px;
+            z-index: -1;
+        }
+        
+        .ig22 {
+            margin-top: -260px;
+            margin-left: -140px;
+            z-index: -1;
+        }
+        
+        .ig23 {
+            margin-top: 10px;
+            margin-left: 360px;
+            z-index: -1;
+        }
+        /* internal */
+    </style>
+</head>
+
+<body style="background-color: #d9d2cc;">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;list-style:none;color: #a67564;" onclick="history.back()"><span style="cursor:pointer"><i class="fa-solid fa-arrow-left"></i></span></li>
+    <a href="#" style="text-decoration: none;">
+        <h1 style=" text-align: center; color: #a67564;font-family: Josefin Sans; font-size: 50px; font-weight: 100;" id="Amenities">Amenities</h1>
+    </a>
+    <div class="mylist" style="margin-left: 60px;">
+        <p style="color: #a67564; font-family: Josefin Sans; font-size: 18px; font-weight: 100;">External</p>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Gym</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Two sauna rooms (separate facilities for women and men)</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Two steam rooms (separate facilities for women and men)</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Two massage rooms (separate facilities for women and men)</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Two squash courts</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Indoor games room</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Table tennis & lounge</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Reception & seating</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Creche</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Aerobics & yoga</li>
+        <li style="color: #d9b18e; list-style: none; line-height: 1.6">- Terrace seating area</li>
+    </div>
+    <div class="right" style="margin-left: 590px;margin-top: -280px;">
+        <div class="ig1">
+
+            <img src="./Amenities/External/seactiom 01/02.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" width="300px" height="300px" alt="">
+        </div>
+        <div class="ig52">
+            <img src="./Amenities/External/seactiom 01/Right01.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" height="50px" width="100px" alt="">
+            <img src="./Amenities/External/seactiom 01/Right02.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" height="50px" width="100px" alt="">
+
+        </div>
+        <div class="ig53">
+
+            <img src="./Amenities/External/seactiom 01/Right03.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" height="50px" width="100px" alt="">
+
+            </p>
+        </div>
+
+    </div>
+    <div class="ig4">
+        <img src="./Amenities/External/seactiom 01/Left01.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" height="50px" width="100px" alt="">
+        <img src="./Amenities/External/seactiom 01/Left02.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" height="50px" width="100px" alt="">
+
+    </div>
+    <div class="ig5">
+
+        <img src="./Amenities/External/seactiom 01/Left03.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" height="50px" width="100px" alt="">
+
+        </p>
+
+        <div class="ig6">
+
+            <img src="./Amenities/External/seactiom 01/01.png" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;" width="300px" height="300px" alt="">
+        </div>
+        <h1 style="padding-top:200px">
+            <hr>
+        </h1>
+        <!-- other section -->
+        <div class="mylist1" style="padding-top:200px">
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans; ">- Swimming pool</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Kid’s poo</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Jacuzzi</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Pool deck</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Outdoor party area</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Barbeque pits</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Thematic garden</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Palm court</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Gazebo lounge area</li>
+            <li style="color: #d9b18e; list-style: none; font-family: Josefin Sans;">- Party lawn</li>
+
+        </div>
+        <div class="ig7" style="padding-top:200px">
+
+            <img src="./Amenities/External/Section02/01.png" width="300px" height="620px" alt="">
+        </div>
+
+
+        <div class="ig8" style="padding-top:200px">
+
+            <img src="./Amenities/External/Section02/upper01.png" height="150px" width="250px" alt="">
+
+            </p>
+
+            <div class="ig9" style="padding-top:200px">
+
+                <img src="./Amenities/External/Section02/upper02.png" height="160px" width="250px" alt="">
+            </div>
+            <div class="ig10" style="padding-top:200px">
+
+                <img src="./Amenities/External/Section02/centre02.png" height="160px" width="250px" alt="">
+
+                </p>
+
+                <div class="ig11" style="padding-top:200px">
+
+                    <img src="./Amenities/External/Section02/centre01.png" height="150px" width="250px" alt="">
+                </div>
+                <div class="ig12" style="padding-top:200px">
+
+                    <img src="./Amenities/External/Section02/lower01.png" height="150px" width="250px" alt="">
+
+                    </p>
+
+                    <div class="ig13" style="padding-top:200px">
+
+                        <img src="./Amenities/External/Section02/lower02.png" height="150px" width="250px" alt="">
+                    </div>
+
+
+                    <!-- other section -->
+
+
+
+
+
+                    <!-- section 2 -->
+                    <div class="mydata">
+                        <li>- Yoga lawn</li>
+                        <li>- Skating area</li>
+                        <li>- Tennis court</li>
+                        <li>- Half basketball court</li>
+                        <li>- Cricket net</li>
+                        <li>- Jogging track</li>
+                    </div>
+
+                    <div class="ig14">
+
+                        <img src="./Amenities/External/Section03/main.png" height="450px" width="450px" alt="">
+                    </div>
+                    <div class="ig15">
+
+                        <img src="./Amenities/External/Section03/01.png" height="150px" width="250px" alt="">
+                    </div>
+                    <div class="ig16">
+
+                        <img src="./Amenities/External/Section03/02.png" height="150px" width="250px" alt="">
+                    </div>
+                    <div class="ig17">
+
+                        <img src="./Amenities/External/Section03/03.png" height="150px" width="250px" alt="">
+                    </div>
+                    <!-- section 2 -->
+
+
+                    <!-- internal -->
+                    <div class="internal">
+                        <h1>Internal</h1>
+                        <li>- International modular kitchen</li>
+                        <li>- International sanitaryware</li>
+                        <li>- International CP fittings</li>
+                        <li>- International marble flooring in living room</li>
+                        <li>- Laminated wooden flooring in bedrooms </li>
+                        <li>- Air-conditioned residences with temperature control in each room, except kitchen and toilets</li>
+                        <li>- Gas/heat detector in kitchen and sprinkler system. </li>
+                    </div>
+
+                    <div class="ig18">
+
+                        <img src="./Amenities/Internal/01.png" height="150px" width="250px" alt="">
+                    </div>
+                    <div class="ig19">
+
+                        <img src="./Amenities/Internal/02.png" height="150px" width="250px" alt="">
+                    </div>
+                    <div class="ig20">
+
+                        <img src="./Amenities/Internal/03.png" height="150px" width="250px" alt="">
+                    </div>
+                    <div class="ig21">
+
+                        <img src="./Amenities/Internal/04.png" height="150px" width="250px" alt="">
+                    </div>
+                    <div class="ig22">
+
+                        <img src="./Amenities/Internal/05.png" height="150px" width="250px" alt="">
+                    </div>
+                    <!-- internal -->
+
+
+</body>
+
+</html>
+<!-- aminity -->
+
+
+
+<h1 style="padding-top:200px">
+    <hr>
+</h1>
+
+
+<!-- gallary -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        body {
+            background-color: #d9d2cc;
+        }
+        
+        .g1 {
+            padding-top: 50px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        
+        .g2 {
+            margin-left: 790px;
+            margin-top: -278px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        
+        .g3 {
+            margin-left: 1090px;
+            margin-top: -188px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        
+        .g4 {
+            margin-left: 15px;
+            margin-top: -20px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        
+        .g5 {
+            margin-left: 430px;
+            margin-top: -266px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        
+        .g6 {
+            margin-left: 865px;
+            margin-top: -386px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        
+        .g7 {
+            margin-left: 1100px;
+            margin-top: -140px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        
+        .scroll {
+            /* background-color: lightblue; */
+            width: 40px;
+            overflow-x: scroll;
+            width: 1300px;
+            margin-left: -280px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Gallery">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+        />
+        <!-- <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;list-style:none;color: #a67564;" onclick="history.back()"><span style="cursor:pointer"><i class="fa-solid fa-arrow-left"></i></span></li>
+        <a href="#" style="text-decoration: none;">
+            <h1 style="  text-align: center;font-family: Josefin Sans;color: #d9b18e;">Gallery</h1>
+        </a> -->
+    </div>
+    <div class="scroll">
+        <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;list-style:none;color: #a67564;" onclick="history.back()"><span style="cursor:pointer"><i class="fa-solid fa-arrow-left"></i></span></li>
+        <a href="#" style="text-decoration: none;">
+            <h1 style="  text-align: center;font-family: Josefin Sans;color: #d9b18e;" id="Gallery">Gallery</h1>
+        </a>
+        <div class="g1">
+            <img src="./Gallery Section/01.png" alt="">
+        </div>
+        <div class="g2">
+            <img src="./Gallery Section/11.png" alt="">
+        </div>
+        <div class="g3">
+            <img src="./Gallery Section/03.png" alt="">
+        </div>
+        <div class="g4">
+            <img src="./Gallery Section/07.png" alt="">
+        </div>
+        <div class="g5">
+            <img src="./Gallery Section/05.png" alt="">
+        </div>
+        <div class="g6">
+            <img src="./Gallery Section/12.png" alt="">
+        </div>
+        <div class="g7">
+            <img src="./Gallery Section/09.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
+<!-- gallary -->
+
+<h1 style="padding-top:200px">
+    <hr>
+</h1>
+<!-- LOCATION -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        body {
+            background-color: #d9d2cc;
+        }
+        
+        .lefttxt {
+            list-style: none;
+            padding-top: 150px;
+            margin-left: 40px;
+            color: #a67564;
+            font-family: Josefin Sans;
+        }
+        
+        .righttxt {
+            list-style: none;
+            margin-left: 330px;
+            margin-top: -155px;
+            color: #a67564;
+            font-family: Josefin Sans;
+        }
+        
+        .loc {
+            margin-left: 600px;
+            margin-top: -295px;
+        }
+        
+        .row {
+            color: #a67564;
+        }
+        
+        .allcontain {
+            margin-left: -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="allcontain">
+        <div class="Location">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+            />
+            <li style="font-family: Josefin Sans; font-size: 18px; font-weight: 100;list-style:none;color: #a67564;" onclick="history.back()"><span style="cursor:pointer"><i class="fa-solid fa-arrow-left"></i></span></li>
+            <a style="text-decoration: none;" href="#">
+                <h1 style="text-align: center; color: #a67564;font-family: Josefin Sans;" id="Location">Location</h1>
+            </a>
+        </div>
+        <!-- <div class="lefttxt">
+        <h3>Current Infrastructure</h3>
+
+        <li>- Eastern Freeway (15 minutes)</li>
+        <li>- Monorail (Next to the project)</li>
+        <li>- Eastern Express Highway (5 minutes)</li>
+        <li>- Wadala 4 Roads (5 minutes)</li>
+        <li> - Water Transport Hub (20 minutes)</li>
+    </div>
+
+    <div class="righttxt">
+        <h3>Ongoing Infrastructure</h3>
+
+        <li>- Mumbai Trans-Harbour Link</li>
+        <li>- Coastal Road</li>
+
+        <h3>Upcoming Infrastructure</h3>
+        <li>- MTHL Dispersal Road</li>
+    </div> -->
+
+        <div class="row">
+            <div class="col-lg-3">
+                <h3 class="pt-5" style="text-align: center; color: #a67564;font-family: Josefin Sans;">Current Infrastructure</h3>
+
+                <li class="list-unstyled " style="text-align: center; color: #a67564;font-family: Josefin Sans;">- Eastern Freeway (15 minutes)</li>
+                <li class="list-unstyled " style="text-align: center; color: #a67564;font-family: Josefin Sans;">- Monorail (Next to the project)</li>
+                <li class="list-unstyled " style="text-align: center; color: #a67564;font-family: Josefin Sans;">- Eastern Express Highway (5 minutes)</li>
+                <li class="list-unstyled " style="text-align: center; color: #a67564;font-family: Josefin Sans;">- Wadala 4 Roads (5 minutes)</li>
+                <li class="list-unstyled " style="text-align: center; color: #a67564;font-family: Josefin Sans;"> - Water Transport Hub (20 minutes)</li>
+
+
+
+            </div>
+            <div class="col-lg-3 ">
+                <h3 class="pt-5" style="text-align: center; color: #a67564;font-family: Josefin Sans;">Ongoing Infrastructure</h3>
+
+                <li class="list-unstyled " style="text-align: center; color: #a67564;font-family: Josefin Sans;">- Mumbai Trans-Harbour Link</li>
+                <li class="list-unstyled " style="text-align: center; color: #a67564;font-family: Josefin Sans;">- Coastal Road</li>
+                <h3 class="pt-5" style="text-align: center; color: #a67564;font-family: Josefin Sans;">Upcoming Infrastructure</h3>
+                <li class="list-unstyled " style="text-align: center; color: #a67564;font-family: Josefin Sans;">- MTHL Dispersal Road</li>
+            </div>
+            <div class="col-lg-6 " style="text-align: center; color: #a67564;font-family: Josefin Sans;">
+                <img class=" img-fulid pt-5" src="./Location section/01.png" alt="">
+            </div>
+        </div>
+        <!-- <div class="loc sm-pt-5">
+        <img class=" sm-50 " src="./Location section/01.png" alt="">
+    </div> -->
+    </div>
+</body>
+
+</html>
+<!-- LOCATION -->
+
+
+<h1 style="padding-top:200px">
+    <hr>
+</h1>
+
+<!-- desclaimer -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+        @media only screen and (max-width: 600px) {
+            p {
+                font-size: x-small;
+            }
+        }
+    </style>
+</head>
+
+<body style="background-color: #d9d2cc;">
+
+    <div class="allcontain">
+        <div class="coloum">
+            <div class="row-lg-6">
+                <h1 style="text-align: center;font-family: Josefin Sans; font-size: 18px; font-weight: bolder; color: #a67564;padding-top: 50px;">Disclaimer</h1>
+            </div>
+            <div class="row-lg-6">
+                <p align="center" style="font-family: Josefin Sans; font-size: 18px; font-weight: bolder;color: #a67564;">All image/s are strictly for representational purposes. The specifications, pictures, images, aesthetics, features, views, amenities, facilities and surroundings shown / mentioned are only for representational, illustrational and indicative
+                    purpose, and the terms of the agreement for sale (if any) if entered into by parties will solely govern, control and prevail. Features, fixtures, fittings, goods, accessories and furniture reflected / displayed in img are strictly
+                    for illustrative and representational purposes only and are not part of the standard final amenities & finishes and the actual amenities will vary in planning and upon actual construction. Prospective customers are requested to refer
+                    to the sanctioned plans for further information for the phase or visit https://maharera.mahaonline.gov.in/ for further details. Terms & Conditions apply. This website is meant only for information purposes. It should not be considered/claimed
+                    as an ocial site. This website belongs to authorized channel partner of <br> Bombay Realty.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
